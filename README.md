@@ -3,7 +3,7 @@
 Career intelligence platform for Indian tech salaries.
 
 ## Live URL
-> Deploy to Vercel with `npx vercel --prod`
+'https://talentdash-lm2t.vercel.app/'
 
 ## Run locally (under 5 minutes)
 
