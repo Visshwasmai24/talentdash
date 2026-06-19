@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { SALARY_RECORDS, COMPANY_META } from '@/lib/mock-data';
 import { formatSalary, computeMedian, slugToName } from '@/lib/utils';
 import { SITE_URL } from '@/lib/config';
+import CompanyLogo from '@/components/ui/CompanyLogo';
 
 export const metadata: Metadata = {
   title: 'TalentDash — Salary data you can act on.',
@@ -60,7 +61,10 @@ export default function HomePage() {
               return (
                 <Link key={c.slug} href={`/companies/${c.slug}`}
                   className="bg-white rounded-xl border border-[#EBEBEB] p-5 hover:border-[#00A67E]/40 hover:shadow-md transition-all group">
-                  <h3 className="font-bold text-[#1a1a1a] text-base group-hover:text-[#00A67E] transition-colors truncate">{c.name}</h3>
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <CompanyLogo name={c.name} size="sm" />
+                    <h3 className="font-bold text-[#1a1a1a] text-base group-hover:text-[#00A67E] transition-colors truncate">{c.name}</h3>
+                  </div>
                   <p className="text-xs text-[#717171] mb-3">{c.industry}</p>
                   <p className="text-lg font-bold text-[#0369A1]">{formatSalary(median, cur, cur)}</p>
                   <p className="text-xs text-[#717171]">Median TC · {recs.length} records</p>
@@ -81,6 +85,7 @@ export default function HomePage() {
               <div key={r.id} className={`flex items-center justify-between px-6 py-4 ${i < topRecords.length - 1 ? 'border-b border-[#EBEBEB]' : ''} hover:bg-[#F7F7F7] transition-colors`}>
                 <div className="flex items-center gap-4 min-w-0">
                   <span className="text-lg font-bold text-[#EBEBEB] w-6 shrink-0">#{i + 1}</span>
+                  <CompanyLogo name={slugToName(r.company_slug)} size="sm" />
                   <div className="min-w-0">
                     <p className="font-semibold text-[#1a1a1a] truncate">{slugToName(r.company_slug)}</p>
                     <p className="text-sm text-[#717171] truncate">{r.role} · {r.level_standardized} · {r.location}</p>
