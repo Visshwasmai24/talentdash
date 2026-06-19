@@ -16,9 +16,7 @@ export function formatINR(paise: number): string {
 
 export function formatUSD(cents: number): string {
   const dollars = cents / 100;
-  if (dollars >= 1000000) return `$${(dollars / 1000000).toFixed(2)}M`;
-  if (dollars >= 1000) return `$${(dollars / 1000).toFixed(0)}K`;
-  return `$${dollars.toLocaleString('en-US')}`;
+  return `$${dollars.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
 }
 
 export function formatSalary(amount: number, currency: Currency, displayCurrency: Currency): string {
@@ -44,7 +42,16 @@ export function formatDelta(delta: number, currency: Currency): string {
   const formatted = currency === 'INR' ? formatINR(abs) : formatUSD(abs);
   return `${sign}${formatted}`;
 }
-
+export function convertAmount(amount: number, fromCurrency: Currency, toCurrency: Currency): number {
+  if (fromCurrency === toCurrency) return amount;
+  if (fromCurrency === 'INR' && toCurrency === 'USD') {
+    return Math.round((amount / 100) * CURRENCY_CONVERSION.INR_TO_USD * 100);
+  }
+  if (fromCurrency === 'USD' && toCurrency === 'INR') {
+    return Math.round((amount / 100) * CURRENCY_CONVERSION.USD_TO_INR * 100);
+  }
+  return amount;
+}
 export function computeMedian(values: number[]): number {
   if (values.length === 0) return 0;
   const sorted = [...values].sort((a, b) => a - b);
