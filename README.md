@@ -3,7 +3,7 @@
 Career intelligence platform.
 
 ## Live URL
-[(https://talentdash-lilac.vercel.app/)]
+https://talentdash-lilac.vercel.app/
 
 ## Run locally (under 5 minutes)
 
