@@ -1,9 +1,9 @@
 # TalentDash — Frontend
 
-Career intelligence platform for Indian tech salaries.
+Career intelligence platform.
 
 ## Live URL
-'https://talentdash-lm2t.vercel.app/'
+https://talentdash-lm2t.vercel.app/
 
 ## Run locally (under 5 minutes)
 
