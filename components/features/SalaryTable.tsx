@@ -55,18 +55,18 @@ export default function SalaryTable({ records, displayCurrency, showCompanyLink 
           {records.map((r, idx) => (
             <tr key={r.id} className={`border-b border-[#EBEBEB] hover:bg-[#F2F2F2] transition-colors ${idx % 2 === 0 ? 'bg-white' : 'bg-[#FAFAFA]'}`}>
               <td className="px-4 py-3 max-w-[160px]">
-+                {showCompanyLink ? (
-+                  <Link href={`/companies/${r.company_slug}`} className="flex items-center gap-2 font-medium text-[#222222] hover:text-[#FF5A5F] transition-colors min-w-0">
-+                    <CompanyLogo name={slugToName(r.company_slug)} size="sm" />
-+                    <span className="truncate">{slugToName(r.company_slug)}</span>
-+                  </Link>
-+                ) : (
-+                  <span className="flex items-center gap-2 font-medium text-[#222222] min-w-0">
-+                    <CompanyLogo name={slugToName(r.company_slug)} size="sm" />
-+                    <span className="truncate">{slugToName(r.company_slug)}</span>
-+                  </span>
-+                )}
-+              </td>
+                {showCompanyLink ? (
+                  <Link href={`/companies/${r.company_slug}`} className="flex items-center gap-2 font-medium text-[#222222] hover:text-[#FF5A5F] transition-colors min-w-0">
+                    <CompanyLogo name={slugToName(r.company_slug)} size="sm" />
+                    <span className="truncate">{slugToName(r.company_slug)}</span>
+                  </Link>
+                ) : (
+                  <span className="flex items-center gap-2 font-medium text-[#222222] min-w-0">
+                    <CompanyLogo name={slugToName(r.company_slug)} size="sm" />
+                    <span className="truncate">{slugToName(r.company_slug)}</span>
+                  </span>
+                )}
+              </td>
               <td className="px-4 py-3 max-w-[180px]">
                 <span className="text-[#484848] truncate block" title={r.role}>{r.role}</span>
               </td>
