@@ -3,13 +3,15 @@ import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { SALARY_RECORDS } from '@/lib/mock-data';
 import { SalaryRecord, Currency } from '@/types';
-import { formatSalary, formatDelta, slugToName } from '@/lib/utils';
+import { formatSalary, formatDelta, slugToName, convertAmount } from '@/lib/utils';
 import LevelBadge from '@/components/ui/LevelBadge';
 
 function CompareContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [s1, setS1] = useState(searchParams.get('s1') || '');
+  const c1 = searchParams.get('c1');
+  const defaultS1 = searchParams.get('s1') || (c1 ? SALARY_RECORDS.find(r => r.company_slug === c1)?.id || '' : '');
+  const [s1, setS1] = useState(defaultS1);
   const [s2, setS2] = useState(searchParams.get('s2') || '');
   const [currency, setCurrency] = useState<Currency>('INR');
 
@@ -24,10 +26,10 @@ function CompareContent() {
   }, [s1, s2, router]);
 
   const delta = rec1 && rec2 ? {
-    base: rec1.base_salary - rec2.base_salary,
-    bonus: rec1.bonus - rec2.bonus,
-    stock: rec1.stock - rec2.stock,
-    tc: rec1.total_compensation - rec2.total_compensation,
+    base: convertAmount(rec1.base_salary, rec1.currency, currency) - convertAmount(rec2.base_salary, rec2.currency, currency),
+    bonus: convertAmount(rec1.bonus, rec1.currency, currency) - convertAmount(rec2.bonus, rec2.currency, currency),
+    stock: convertAmount(rec1.stock, rec1.currency, currency) - convertAmount(rec2.stock, rec2.currency, currency),
+    tc: convertAmount(rec1.total_compensation, rec1.currency, currency) - convertAmount(rec2.total_compensation, rec2.currency, currency),
     exp: rec1.experience_years - rec2.experience_years,
   } : null;
 
@@ -131,7 +133,7 @@ function CompareContent() {
                   <div className="px-5 py-3 text-sm font-medium">
                     {d !== null ? (
                       <span className={`font-semibold ${d > 0 ? 'text-[#008A05]' : d < 0 ? 'text-[#D93025]' : 'text-[#717171]'}`}>
-                        {d === 0 ? '—' : formatDelta(d, rec1.currency)}
+                        {d === 0 ? '—' : formatDelta(d, currency)}
                       </span>
                     ) : '—'}
                   </div>
