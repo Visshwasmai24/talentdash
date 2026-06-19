@@ -48,6 +48,15 @@ export interface FilterParams {
   level?: string;
   location?: string;
   currency?: Currency;
-  sort?: 'total_comp_desc' | 'total_comp_asc' | 'date_desc';
+  sort?:
+    | 'total_comp_desc'
+    | 'total_comp_asc'
+    | 'base_desc'
+    | 'base_asc'
+    | 'stock_desc'
+    | 'stock_asc'
+    | 'exp_desc'
+    | 'exp_asc'
+    | 'date_desc';
   page?: number;
 }
