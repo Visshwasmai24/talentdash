@@ -1,10 +1,11 @@
 'use client';
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, Suspense, type ReactNode } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { SALARY_RECORDS } from '@/lib/mock-data';
 import { SalaryRecord, Currency } from '@/types';
 import { formatSalary, formatDelta, slugToName, convertAmount } from '@/lib/utils';
 import LevelBadge from '@/components/ui/LevelBadge';
+import CompanyLogo from '@/components/ui/CompanyLogo';
 
 function CompareContent() {
   const router = useRouter();
@@ -34,9 +35,14 @@ function CompareContent() {
   } : null;
 
   const winner = delta ? (delta.tc > 0 ? 'left' : delta.tc < 0 ? 'right' : 'tie') : null;
-
-  const rows: { label: string; key: keyof SalaryRecord; format?: (v: string & number, r: SalaryRecord) => string }[] = [
-    { label: 'Company', key: 'company_slug', format: (v) => slugToName(v) },
+const rows: { label: string; key: keyof SalaryRecord; format?: (v: string & number, r: SalaryRecord) => ReactNode }[] = [
+  { label: 'Company', key: 'company_slug', format: (v) => (
+      <span className="flex items-center gap-2">
+        <CompanyLogo name={slugToName(v)} size="sm" />
+        {slugToName(v)}
+      </span>
+    ) },
+ 
     { label: 'Role', key: 'role' },
     { label: 'Location', key: 'location' },
     { label: 'Experience', key: 'experience_years', format: (v) => `${v} yrs` },
@@ -96,6 +102,7 @@ function CompareContent() {
                 return (
                   <div className="mt-3 pt-3 border-t border-[#EBEBEB]">
                     <div className="flex items-center gap-2 mb-2">
+                      <CompanyLogo name={slugToName(rec.company_slug)} size="md" />
                       <LevelBadge level={rec.level_standardized} size="md" />
                       <span className="text-xs text-[#717171]">{rec.experience_years} yrs exp · {rec.location}</span>
                     </div>
