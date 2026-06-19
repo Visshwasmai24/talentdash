@@ -84,7 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <span className="w-6 h-6 bg-[#00A67E] rounded-md flex items-center justify-center text-white text-xs font-bold">D</span>
                 TalentDash
               </div>
-              <p className="text-sm text-[#717171]">© 2025 TalentDash · Career intelligence platform · 100% Anonymous · 100% Free</p>
+              <p className="text-sm text-[#717171]">© 2026 TalentDash · Career intelligence platform </p>
             </div>
           </div>
         </footer>
