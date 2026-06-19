@@ -3,7 +3,7 @@
 Career intelligence platform.
 
 ## Live URL
-https://talentdash-lm2t.vercel.app/
+[(https://talentdash-lilac.vercel.app/)]
 
 ## Run locally (under 5 minutes)
 
@@ -33,32 +33,14 @@ The original brief only called for **Salaries, Company pages, Compare, and Auth*
 
 - **`/tools`, `/reviews`, `/interviews`, `/jobs`, `/community`, `/offers`** — placeholder "coming soon" screens only. No calculators, no review submission, no job listings, no forum threads.
 - **`/contribute`** — placeholder page; there's no actual data-submission form yet.
-- **Auth (Login / Sign up)** — explicitly out of scope per the brief. The header still shows "Log in" and "Sign up" links for layout completeness, but they point to `/login` and `/signup`, which don't exist as pages yet.
-- **Footer "Company" links (About, Blog, Careers, Privacy)** — placeholder links for layout/footer completeness; those pages haven't been built.
 - **No real backend** — everything reads from `lib/mock-data.ts`. No database, no live currency FX (INR↔USD uses a fixed mock conversion rate in `lib/config.ts`).
 - **No search/typeahead** — removed the homepage search bar (see below); a real implementation would need Typesense/Fuse.js.
 - **No charts** — company pages show a median figure but no TC-over-time trend visualization yet.
 
 ## Buttons / links that don't work yet
 
-These are visible in the UI but currently lead nowhere (404) because the underlying pages aren't built:
-- Header: **Log in**, **Sign up**
-- Footer "Company" column: **About**, **Blog**, **Careers**, **Privacy**
-
 These are visible and lead somewhere, but only to a "coming soon" placeholder rather than a working feature:
 - Nav/footer: **Tools**, **Reviews**, **Interviews**, **Jobs**, **Forum (Community)**, **Offers**, **Contribute**
-
-## Homepage changes
-
-- Replaced the literal "Explore. Compare. Grow." headline (a near 1:1 mirror of the brief's own wording) with **"Salary data you can act on."** — a more original, benefit-led line in the same spirit.
-- Removed the homepage search card (tabbed search + job-title input + location input + trending-search chips). It duplicated `/salaries` filtering without adding value, and the inputs weren't wired to anything real.
-- In its place: two clear CTAs — **Explore Salaries** and **Compare Offers** — plus a single trust line (`X+ verified records · Y+ companies · Updated daily`) instead of the old 4-box stat grid.
-- Added a **Compare** link to the top nav, right next to **Salaries**, so the two core actions are reachable from anywhere on the site.
-- Currency toggle buttons (INR / USD) on `/compare` and the `/salaries` filter bar now highlight in the brand green (`#00A67E`) instead of the old coral red, for visual consistency with the rest of the UI (logo, primary buttons, "Sign up").
-
-## Why the 404 page is built this way
-
-`app/not-found.tsx` uses the Next.js App Router convention so **any** unmatched route — a mistyped company slug, a removed page, a broken external link — automatically renders this instead of Next's default error screen. It's deliberately minimal: a clear "404 / Page not found" message plus a single CTA (**Browse Salaries**) back into the working part of the product, rather than leaving the visitor on a dead end with no way forward.
 
 ## Architecture Decisions
 
