@@ -51,8 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
                   Contribute
                 </Link>
-                <Link href="/login" className="px-3 py-1.5 text-sm font-medium text-[#484848] hover:text-[#1a1a1a] transition-colors">Log in</Link>
-                <Link href="/signup" className="px-4 py-1.5 text-sm font-semibold bg-[#00A67E] text-white rounded-lg hover:bg-[#008f6c] transition-colors">Sign up</Link>
+                
               </div>
             </div>
           </div>
