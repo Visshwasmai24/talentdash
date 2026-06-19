@@ -61,12 +61,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <footer className="border-t border-[#EBEBEB] bg-white mt-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
               {[
                 { title: 'Explore', links: [['Salaries', '/salaries'], ['Reviews', '/reviews'], ['Interviews', '/interviews'], ['Companies', '/companies/google']] },
                 { title: 'Tools', links: [['Salary Calculator', '/tools'], ['Hike Calculator', '/tools'], ['Equity Calculator', '/tools'], ['Compare Offers', '/compare']] },
                 { title: 'Community', links: [['Forum', '/community'], ['Trending Topics', '/community'], ['Contribute Data', '/contribute']] },
-                { title: 'Company', links: [['About', '/about'], ['Blog', '/blog'], ['Careers', '/careers'], ['Privacy', '/privacy']] },
+               
               ].map(section => (
                 <div key={section.title}>
                   <h3 className="text-xs font-semibold text-[#222222] uppercase tracking-wider mb-3">{section.title}</h3>
