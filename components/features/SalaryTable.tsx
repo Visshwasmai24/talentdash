@@ -7,9 +7,18 @@ interface SalaryTableProps {
   records: SalaryRecord[];
   displayCurrency: Currency;
   showCompanyLink?: boolean;
+  currentSort?: string;
+  sortHrefFor?: (sortValue: string) => string;
 }
 
-export default function SalaryTable({ records, displayCurrency, showCompanyLink = true }: SalaryTableProps) {
+const SORT_KEYS: Record<string, { asc: string; desc: string }> = {
+  Exp: { asc: 'exp_asc', desc: 'exp_desc' },
+  Base: { asc: 'base_asc', desc: 'base_desc' },
+  Stock: { asc: 'stock_asc', desc: 'stock_desc' },
+  'Total Comp': { asc: 'total_comp_asc', desc: 'total_comp_desc' },
+};
+
+export default function SalaryTable({ records, displayCurrency, showCompanyLink = true, currentSort, sortHrefFor }: SalaryTableProps) {
   if (records.length === 0) return null;
 
   return (
@@ -17,11 +26,28 @@ export default function SalaryTable({ records, displayCurrency, showCompanyLink 
       <table className="w-full text-sm">
         <thead>
           <tr className="border-b border-[#EBEBEB] bg-[#F7F7F7]">
-            {['Company','Role','Level','Location','Exp','Base','Stock','Total Comp'].map((h) => (
-              <th key={h} className={`px-4 py-3 text-left text-xs font-semibold text-[#717171] uppercase tracking-wide whitespace-nowrap ${h === 'Total Comp' ? 'text-right' : ''}`}>
-                {h}
-              </th>
-            ))}
+            {['Company','Role','Level','Location','Exp','Base','Stock','Total Comp'].map((h) => {
+              const isRight = h === 'Total Comp';
+              const sortKeys = SORT_KEYS[h];
+              if (sortKeys && sortHrefFor) {
+                const isAsc = currentSort === sortKeys.asc;
+                const isDesc = currentSort === sortKeys.desc;
+                const nextSortValue = isDesc ? sortKeys.asc : sortKeys.desc;
+                return (
+                  <th key={h} className={`px-4 py-3 text-left text-xs font-semibold text-[#717171] uppercase tracking-wide whitespace-nowrap ${isRight ? 'text-right' : ''}`}>
+                    <Link href={sortHrefFor(nextSortValue)} className="inline-flex items-center gap-1 hover:text-[#222222] transition-colors">
+                      {h}
+                      <span className="text-[10px] w-2 inline-block">{isAsc ? '▲' : isDesc ? '▼' : ''}</span>
+                    </Link>
+                  </th>
+                );
+              }
+              return (
+                <th key={h} className={`px-4 py-3 text-left text-xs font-semibold text-[#717171] uppercase tracking-wide whitespace-nowrap ${isRight ? 'text-right' : ''}`}>
+                  {h}
+                </th>
+              );
+            })}
           </tr>
         </thead>
         <tbody>
