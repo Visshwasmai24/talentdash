@@ -119,7 +119,7 @@ export default function FilterBar({ initialCompany='', initialRole='', initialLe
           <div className="flex rounded-lg border border-[#EBEBEB] overflow-hidden">
             {(['INR', 'USD'] as Currency[]).map(c => (
               <button key={c} onClick={() => { setCurrency(c); pushParams({ currency: c }); }}
-                className={`px-4 py-2 text-sm font-medium transition-colors ${currency === c ? 'bg-[#FF5A5F] text-white' : 'bg-[#F7F7F7] text-[#484848] hover:bg-[#F2F2F2]'}`}>
+                className={`px-4 py-2 text-sm font-medium transition-colors ${currency === c ? 'bg-[#00A67E] text-white' : 'bg-[#F7F7F7] text-[#484848] hover:bg-[#F2F2F2]'}`}>
                 {c}
               </button>
             ))}
