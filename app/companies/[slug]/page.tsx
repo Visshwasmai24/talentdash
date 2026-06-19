@@ -5,6 +5,7 @@ import { COMPANY_META, getAllSlugs, getRecordsBySlug } from '@/lib/mock-data';
 import { SITE_URL } from '@/lib/config';
 import { computeMedian, computeLevelDistribution, formatSalary } from '@/lib/utils';
 import LevelBadge from '@/components/ui/LevelBadge';
+import CompanyLogo from '@/components/ui/CompanyLogo';
 import SalaryTable from '@/components/features/SalaryTable';
 
 interface PageProps { params: Promise<{ slug: string }> }
@@ -73,7 +74,10 @@ export default async function CompanyPage({ params }: PageProps) {
           <div className="bg-white rounded-xl border border-[#EBEBEB] p-6 mb-6 shadow-sm">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
               <div>
-                <h1 className="text-3xl font-bold text-[#222222] mb-2">{meta.name}</h1>
+                <div className="flex items-center gap-4 mb-2">
+                  <CompanyLogo name={meta.name} size="lg" />
+                  <h1 className="text-3xl font-bold text-[#222222]">{meta.name}</h1>
+                </div>
                 <div className="flex flex-wrap items-center gap-3 text-sm text-[#717171]">
                   <span className="bg-[#F7F7F7] border border-[#EBEBEB] rounded-full px-3 py-1 font-medium text-[#484848]">{meta.industry}</span>
                   {meta.founded_year && <span>Founded {meta.founded_year}</span>}
