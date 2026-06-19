@@ -51,10 +51,26 @@ export default async function SalariesPage({ searchParams }: PageProps) {
     return true;
   });
 
-  if (sort === 'total_comp_desc') filtered.sort((a, b) => b.total_compensation - a.total_compensation);
+ if (sort === 'total_comp_desc') filtered.sort((a, b) => b.total_compensation - a.total_compensation);
   else if (sort === 'total_comp_asc') filtered.sort((a, b) => a.total_compensation - b.total_compensation);
+  else if (sort === 'base_desc') filtered.sort((a, b) => b.base_salary - a.base_salary);
+  else if (sort === 'base_asc') filtered.sort((a, b) => a.base_salary - b.base_salary);
+  else if (sort === 'stock_desc') filtered.sort((a, b) => b.stock - a.stock);
+  else if (sort === 'stock_asc') filtered.sort((a, b) => a.stock - b.stock);
+  else if (sort === 'exp_desc') filtered.sort((a, b) => b.experience_years - a.experience_years);
+  else if (sort === 'exp_asc') filtered.sort((a, b) => a.experience_years - b.experience_years);
   else if (sort === 'date_desc') filtered.sort((a, b) => new Date(b.submitted_at).getTime() - new Date(a.submitted_at).getTime());
 
+  const buildSortHref = (sortValue: string) => {
+    const sp = new URLSearchParams();
+    if (company) sp.set('company', company);
+    if (role) sp.set('role', role);
+    levels.forEach(l => sp.append('level', l));
+    if (location) sp.set('location', location);
+    if (currency !== 'INR') sp.set('currency', currency);
+    sp.set('sort', sortValue);
+    return `/salaries?${sp.toString()}`;
+  };
   const total = filtered.length;
   const totalPages = Math.max(1, Math.ceil(total / ITEMS_PER_PAGE));
   const safePage = Math.min(page, totalPages);
@@ -66,7 +82,7 @@ export default async function SalariesPage({ searchParams }: PageProps) {
       <main className="min-h-screen bg-[#F7F7F7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="mb-6">
-            <h1 className="text-3xl font-bold text-[#222222] mb-1">Salary Explorer</h1>
+            <h1 className="text-3xl font-bold text-[#222222] mb-1">Software Engineer Salaries in India — L3 to Principal</h1>
             <p className="text-[#717171] text-base">Verified compensation data from {SALARY_RECORDS.length}+ records across top companies</p>
           </div>
 
@@ -89,7 +105,7 @@ export default async function SalariesPage({ searchParams }: PageProps) {
             </div>
           ) : (
             <>
-              <SalaryTable records={paginated} displayCurrency={currency} />
+              <SalaryTable records={paginated} displayCurrency={currency} currentSort={sort} sortHrefFor={buildSortHref} />
               <Suspense>
                 <PaginationClient page={safePage} totalPages={totalPages} total={total} limit={ITEMS_PER_PAGE} />
               </Suspense>
