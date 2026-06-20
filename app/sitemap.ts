@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/community`, changeFrequency: 'daily', priority: 0.5 },
     { url: `${SITE_URL}/offers`, changeFrequency: 'weekly', priority: 0.5 },
     { url: `${SITE_URL}/tools`, changeFrequency: 'weekly', priority: 0.5 },
+    { url: `${SITE_URL}/workplace-index`, changeFrequency: 'weekly', priority: 0.6 },
   ];
 
   const companyRoutes: MetadataRoute.Sitemap = companySlugs.map((slug) => ({
