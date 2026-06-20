@@ -1,33 +1,61 @@
 import Link from 'next/link';
 
+const NAV_LINKS = [
+  { href: '/companies/google', label: 'Companies' },
+  { href: '/salaries', label: 'Salaries' },
+  { href: '/reviews', label: 'Reviews' },
+  { href: '/interviews', label: 'Interviews' },
+  { href: '/jobs', label: 'Jobs' },
+  { href: '/community', label: 'Forum' },
+  { href: '/offers', label: 'Offers' },
+  { href: '/tools', label: 'Tools' },
+  { href: '/workplace-index', label: 'Brands' },
+];
+
 export function Navbar() {
   return (
     <nav className="bg-white border-b border-[#EBEBEB] sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14">
+        <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
-            <Link href="/" className="flex items-center gap-2">
-              <span className="text-[#FF5A5F] font-bold text-xl tracking-tight">Talent</span>
-              <span className="text-[#222222] font-bold text-xl tracking-tight">Dash</span>
+            <Link href="/" className="flex items-center gap-2 shrink-0">
+              <span className="w-7 h-7 bg-[#16A34A] rounded-md flex items-center justify-center">
+                <svg viewBox="0 0 24 24" className="w-4 h-4 text-white" fill="currentColor">
+                  <path d="M12 2L2 12l10 10 10-10L12 2zm0 4.83L17.17 12 12 17.17 6.83 12 12 6.83z" />
+                </svg>
+              </span>
+              <span className="font-bold text-lg tracking-tight text-[#111827]">TalentDash</span>
             </Link>
-            <div className="hidden md:flex items-center gap-6">
-              <Link href="/salaries" className="text-[13px] font-medium text-[#484848] hover:text-[#222222] transition-colors">
-                Salaries
-              </Link>
-              <Link href="/companies/google" className="text-[13px] font-medium text-[#484848] hover:text-[#222222] transition-colors">
-                Companies
-              </Link>
-              <Link href="/compare" className="text-[13px] font-medium text-[#484848] hover:text-[#222222] transition-colors">
-                Compare
-              </Link>
+            <div className="hidden lg:flex items-center gap-6">
+              {NAV_LINKS.map(({ href, label }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  className="text-[14px] font-medium text-[#4B5563] hover:text-[#111827] transition-colors"
+                >
+                  {label}
+                </Link>
+              ))}
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 shrink-0">
             <Link
-              href="/salaries"
-              className="hidden sm:inline-flex items-center px-4 py-1.5 text-[13px] font-medium text-white bg-[#FF5A5F] rounded-lg hover:bg-[#e5484d] transition-colors"
+              href="/contribute"
+              className="hidden md:inline-flex items-center gap-1.5 text-[14px] font-medium text-[#4B5563] hover:text-[#111827] transition-colors"
             >
-              Add Salary
+              Contribute
+            </Link>
+            <Link
+              href="/login"
+              className="hidden sm:inline-flex items-center text-[14px] font-medium text-[#4B5563] hover:text-[#111827] transition-colors"
+            >
+              Log in
+            </Link>
+            <Link
+              href="/signup"
+              className="inline-flex items-center px-4 py-2 text-[14px] font-semibold text-white bg-[#16A34A] rounded-lg hover:bg-[#15803D] transition-colors"
+            >
+              Sign up
             </Link>
           </div>
         </div>
