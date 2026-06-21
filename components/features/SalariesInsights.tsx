@@ -71,7 +71,7 @@ export default function SalariesInsights() {
   return (
     <div className="bg-white rounded-2xl border border-[#EBEBEB] p-6 mb-8 shadow-sm">
       <div className="flex items-center gap-2 mb-1">
-        <span className="w-8 h-8 rounded-lg bg-[#F0FDF4] flex items-center justify-center text-[#16A34A] font-bold text-sm">$</span>
+        <span className="w-8 h-8 rounded-lg bg-[#EEF2FF] flex items-center justify-center text-[#6366F1] font-bold text-sm">$</span>
         <h2 className="text-lg font-bold text-[#111827]">Real salary insights. Real career growth.</h2>
       </div>
       <p className="text-sm text-[#717171] mb-6">Explore verified compensation data from professionals around the world.</p>
@@ -97,14 +97,14 @@ export default function SalariesInsights() {
         <div>
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-sm font-bold text-[#111827]">Top paying companies</h3>
-            <Link href="/companies/google" className="text-xs font-semibold text-[#16A34A] hover:underline">View all companies →</Link>
+            <Link href="/companies/google" className="text-xs font-semibold text-[#FF5A5F] hover:underline">View all companies →</Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {topPaying.map((c) => (
               <Link
                 key={c.slug}
                 href={`/companies/${c.slug}`}
-                className="flex items-center gap-3 p-3 rounded-lg border border-[#EBEBEB] hover:border-[#16A34A] transition-colors"
+                className="flex items-center gap-3 p-3 rounded-lg border border-[#EBEBEB] hover:border-[#FF5A5F] transition-colors"
               >
                 <CompanyLogo name={c.name} size="md" />
                 <div className="min-w-0">
@@ -120,7 +120,7 @@ export default function SalariesInsights() {
         <div>
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-sm font-bold text-[#111827]">Salary heatmap by role & location</h3>
-            <Link href="#" className="text-xs font-semibold text-[#16A34A] hover:underline">View full heatmap →</Link>
+            <Link href="#" className="text-xs font-semibold text-[#FF5A5F] hover:underline">View full heatmap →</Link>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-xs border-separate border-spacing-1">
@@ -180,7 +180,7 @@ export default function SalariesInsights() {
               </div>
             ))}
           </div>
-          <Link href="/salaries" className="text-xs font-semibold text-[#16A34A] hover:underline mt-3 inline-block">View all roles & salary trends →</Link>
+          <Link href="/salaries" className="text-xs font-semibold text-[#FF5A5F] hover:underline mt-3 inline-block">View all roles & salary trends →</Link>
         </div>
 
         {/* Salary by experience */}
@@ -220,7 +220,7 @@ export default function SalariesInsights() {
               <Link
                 key={label}
                 href={href}
-                className="px-3 py-2 text-xs font-medium text-[#4B5563] border border-[#EBEBEB] rounded-lg hover:border-[#16A34A] hover:text-[#16A34A] transition-colors text-center"
+                className="px-3 py-2 text-xs font-medium text-[#4B5563] border border-[#EBEBEB] rounded-lg hover:border-[#FF5A5F] hover:text-[#FF5A5F] transition-colors text-center"
               >
                 {label}
               </Link>
