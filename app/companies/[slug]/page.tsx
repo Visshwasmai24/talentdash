@@ -86,7 +86,7 @@ export default async function CompanyPage({ params }: PageProps) {
                 </div>
               </div>
               <Link href={`/compare?c1=${slug}`}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#00A67E] text-white text-sm font-semibold rounded-lg hover:bg-[#008f6c]  transition-colors whitespace-nowrap self-start">
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#FF5A5F] text-white text-sm font-semibold rounded-lg hover:bg-[#e0484d]  transition-colors whitespace-nowrap self-start">
                 Compare
               </Link>
             </div>
