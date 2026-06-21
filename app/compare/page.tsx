@@ -71,7 +71,7 @@ const rows: { label: string; key: keyof SalaryRecord; format?: (v: string & numb
           <div className="flex rounded-lg border border-[#EBEBEB] overflow-hidden">
             {(['INR','USD'] as Currency[]).map(c => (
               <button key={c} onClick={() => setCurrency(c)}
-                className={`px-4 py-2 text-sm font-medium transition-colors ${currency === c ? 'bg-[#00A67E] text-white' : 'bg-white text-[#484848] hover:bg-[#F2F2F2]'}`}>
+                className={`px-4 py-2 text-sm font-medium transition-colors ${currency === c ? 'bg-[#FF5A5F] text-white' : 'bg-white text-[#484848] hover:bg-[#F2F2F2]'}`}>
                 {c}
               </button>
             ))}
