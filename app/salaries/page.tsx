@@ -104,7 +104,7 @@ export default async function SalariesPage({ searchParams }: PageProps) {
             <div className="bg-white rounded-xl border border-[#EBEBEB] p-16 text-center">
               <p className="text-[#484848] text-lg font-medium mb-2">No records found for these filters.</p>
               <p className="text-[#717171] mb-4">Try removing a filter to see more results.</p>
-              <a href="/salaries" className="text-[#16A34A] font-medium hover:underline">Clear all filters</a>
+              <a href="/salaries" className="text-[#FF5A5F] font-medium hover:underline">Clear all filters</a>
             </div>
           ) : (
             <>
