@@ -99,7 +99,7 @@ export default function WorkplaceIndexPage() {
         {/* Offers banner */}
         <div className="bg-white rounded-2xl border border-[#EBEBEB] p-6 shadow-sm grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
           <div>
-            <p className="text-xs font-semibold text-[#0EA5E9] uppercase tracking-wider mb-1">Offers</p>
+            <p className="text-xs font-semibold text-[#6366F1] uppercase tracking-wider mb-1">Offers</p>
             <h2 className="text-xl font-bold text-[#111827] mb-2">Decode your offer. Know your worth.</h2>
             <p className="text-sm text-[#717171] mb-4">AI-powered insights to evaluate your total compensation and make confident career decisions.</p>
             <div className="grid grid-cols-2 gap-3">
@@ -115,7 +115,7 @@ export default function WorkplaceIndexPage() {
             <div>
               <p className="text-sm font-semibold text-[#111827] mb-1">Evaluate your offer in 2 minutes</p>
               <p className="text-xs text-[#717171] mb-4">Upload your offer details and get a complete breakdown of your CTC, benefits, equity and more.</p>
-              <Link href="/offers" className="inline-flex px-4 py-2 bg-[#0EA5E9] text-white text-xs font-semibold rounded-lg hover:bg-[#0284C7] transition-colors">
+              <Link href="/offers" className="inline-flex px-4 py-2 bg-[#6366F1] text-white text-xs font-semibold rounded-lg hover:bg-[#4F46E5] transition-colors">
                 Evaluate my offer
               </Link>
             </div>
@@ -130,7 +130,7 @@ export default function WorkplaceIndexPage() {
         <div className="bg-white rounded-2xl border border-[#EBEBEB] p-6 shadow-sm">
           <div className="flex items-center justify-between mb-1">
             <h2 className="text-xl font-bold text-[#111827]">Powerful tools. Smarter career moves.</h2>
-            <Link href="/tools" className="text-sm font-semibold text-[#16A34A] hover:underline">View all tools →</Link>
+            <Link href="/tools" className="text-sm font-semibold text-[#FF5A5F] hover:underline">View all tools →</Link>
           </div>
           <p className="text-sm text-[#717171] mb-6">Accurate calculators and analyzers to help you plan, grow and negotiate better.</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
@@ -145,7 +145,7 @@ export default function WorkplaceIndexPage() {
                 <p className="text-xs font-semibold text-[#111827] mb-1">{title}</p>
                 <p className="text-[11px] text-[#717171] mb-2">{desc}</p>
                 <p className="text-[10px] text-[#9CA3AF] mb-2">{used}</p>
-                <Link href="/tools" className="text-[11px] font-semibold text-[#16A34A] hover:underline">Calculate now →</Link>
+                <Link href="/tools" className="text-[11px] font-semibold text-[#FF5A5F] hover:underline">Calculate now →</Link>
               </div>
             ))}
           </div>
