@@ -17,10 +17,10 @@ const TRENDING_SEARCHES = ['Software Engineer', 'Data Scientist', 'Product Manag
 
 const EXPLORE_CATEGORIES = [
   { label: 'Salaries', desc: 'Compare pay by role, company, city and experience.', href: '/salaries', color: '#16A34A' },
-  { label: 'Reviews', desc: 'Discover what employees say about companies.', href: '/reviews', color: '#F59E0B' },
-  { label: 'Interviews', desc: 'Practice real questions and interview experiences.', href: '/interviews', color: '#8B5CF6' },
+  { label: 'Reviews', desc: 'Discover what employees say about companies.', href: '/reviews', color: '#F97316' },
+  { label: 'Interviews', desc: 'Practice real questions and interview experiences.', href: '/interviews', color: '#7C3AED' },
   { label: 'Jobs', desc: 'Find the right opportunities, remote or on-site.', href: '/jobs', color: '#EC4899' },
-  { label: 'Offers', desc: 'Compare offers, salary, bonus, equity and more.', href: '/offers', color: '#0EA5E9' },
+  { label: 'Offers', desc: 'Compare offers, salary, bonus, equity and more.', href: '/offers', color: '#3B82F6' },
   { label: 'Community', desc: 'Ask questions, join and learn from others.', href: '/community', color: '#10B981' },
 ];
 
@@ -64,10 +64,10 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#F7F7F7]">
       {/* Hero */}
-      <section className="bg-gradient-to-b from-[#F0FDF4] to-[#F7F7F7] border-b border-[#EBEBEB]">
+      <section className="bg-gradient-to-b from-[#FFF5F5] to-[#F7F7F7] border-b border-[#EBEBEB]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
           <h1 className="text-5xl font-bold text-[#111827] mb-3 leading-tight">
-            Salary data you can <span className="text-[#16A34A]">act on</span>
+            Salary data you can <span className="text-[#FF5A5F]">act on</span>
           </h1>
           <p className="text-lg text-[#4B5563] mb-8 max-w-2xl mx-auto">
             Structured, normalised, level-aware compensation data across top Indian and global tech companies.
@@ -77,13 +77,13 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
             <Link
               href="/salaries"
-              className="px-6 py-3 bg-[#16A34A] text-white text-sm font-semibold rounded-xl hover:bg-[#15803D] transition-colors w-full sm:w-auto text-center"
+              className="px-6 py-3 bg-[#FF5A5F] text-white text-sm font-semibold rounded-xl hover:bg-[#e0484d] transition-colors w-full sm:w-auto text-center"
             >
               Explore Salaries
             </Link>
             <Link
               href="/compare"
-              className="px-6 py-3 bg-white text-[#111827] text-sm font-semibold rounded-xl border border-[#EBEBEB] hover:border-[#16A34A] hover:text-[#16A34A] transition-colors w-full sm:w-auto text-center"
+              className="px-6 py-3 bg-white text-[#111827] text-sm font-semibold rounded-xl border border-[#EBEBEB] hover:border-[#FF5A5F] hover:text-[#FF5A5F] transition-colors w-full sm:w-auto text-center"
             >
               Compare Offers
             </Link>
@@ -96,7 +96,7 @@ export default function HomePage() {
               <Link
                 key={t}
                 href={`/salaries?role=${encodeURIComponent(t)}`}
-                className="px-3 py-1 bg-white border border-[#EBEBEB] rounded-full text-[#4B5563] hover:border-[#16A34A] hover:text-[#16A34A] transition-colors"
+                className="px-3 py-1 bg-white border border-[#EBEBEB] rounded-full text-[#4B5563] hover:border-[#FF5A5F] hover:text-[#FF5A5F] transition-colors"
               >
                 {t}
               </Link>
@@ -112,8 +112,8 @@ export default function HomePage() {
               { icon: 'lock', label: '100% Free', sub: 'No hidden charges' },
             ].map((s) => (
               <div key={s.label} className="flex items-center gap-2">
-                <span className="w-8 h-8 rounded-lg bg-[#F0FDF4] flex items-center justify-center shrink-0">
-                  <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
+                <span className="w-8 h-8 rounded-lg bg-[#FFF1F1] flex items-center justify-center shrink-0">
+                  <span className="w-2 h-2 rounded-full bg-[#FF5A5F]" />
                 </span>
                 <div>
                   <p className="text-sm font-semibold text-[#111827]">{s.label}</p>
@@ -128,7 +128,7 @@ export default function HomePage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
         {/* Career Intelligence Hub */}
         <section>
-          <p className="text-xs font-semibold text-[#16A34A] uppercase tracking-wider mb-1">Career Intelligence Hub</p>
+          <p className="text-xs font-semibold text-[#7C3AED] uppercase tracking-wider mb-1">Career Intelligence Hub</p>
           <h2 className="text-2xl font-bold text-[#111827] mb-1">Explore the world of work</h2>
           <p className="text-sm text-[#717171] mb-6">Real salary data, honest reviews, interview experiences and insider insights.</p>
 
@@ -137,7 +137,7 @@ export default function HomePage() {
             <div className="bg-white rounded-xl border border-[#EBEBEB] p-5">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
-                  <span className="w-7 h-7 rounded-lg bg-[#F0FDF4] flex items-center justify-center text-[#16A34A] text-xs font-bold">₹</span>
+                  <span className="w-7 h-7 rounded-lg bg-[#FFF1F1] flex items-center justify-center text-[#FF5A5F] text-xs font-bold">₹</span>
                   <h3 className="font-bold text-[#111827] text-sm">Compensation Intelligence</h3>
                 </div>
               </div>
@@ -156,7 +156,7 @@ export default function HomePage() {
                   </Link>
                 ))}
               </div>
-              <Link href="/salaries" className="text-xs font-semibold text-[#16A34A] hover:underline">Explore salaries →</Link>
+              <Link href="/salaries" className="text-xs font-semibold text-[#FF5A5F] hover:underline">Explore salaries →</Link>
             </div>
 
             {/* Company Reviews & Culture */}
@@ -207,7 +207,7 @@ export default function HomePage() {
             {/* Offers & Negotiation */}
             <div className="bg-white rounded-xl border border-[#EBEBEB] p-5">
               <div className="flex items-center gap-2 mb-3">
-                <span className="w-7 h-7 rounded-lg bg-[#F0F9FF] flex items-center justify-center text-[#0EA5E9] text-xs font-bold">$</span>
+                <span className="w-7 h-7 rounded-lg bg-[#FDF2F8] flex items-center justify-center text-[#EC4899] text-xs font-bold">$</span>
                 <h3 className="font-bold text-[#111827] text-sm">Offers & Negotiation</h3>
               </div>
               <p className="text-xs text-[#717171] mb-3">See real offers and learn negotiation strategies that work.</p>
@@ -221,13 +221,13 @@ export default function HomePage() {
                   <p className="text-xs text-[#9CA3AF]">Negotiate successfully</p>
                 </div>
               </div>
-              <Link href="/offers" className="text-xs font-semibold text-[#0EA5E9] hover:underline">Explore offers →</Link>
+              <Link href="/offers" className="text-xs font-semibold text-[#EC4899] hover:underline">Explore offers →</Link>
             </div>
 
             {/* Community Discussions */}
             <div className="bg-white rounded-xl border border-[#EBEBEB] p-5">
               <div className="flex items-center gap-2 mb-3">
-                <span className="w-7 h-7 rounded-lg bg-[#ECFDF5] flex items-center justify-center text-[#10B981] text-xs font-bold">@</span>
+                <span className="w-7 h-7 rounded-lg bg-[#EFF6FF] flex items-center justify-center text-[#3B82F6] text-xs font-bold">@</span>
                 <h3 className="font-bold text-[#111827] text-sm">Community Discussions</h3>
               </div>
               <p className="text-xs text-[#717171] mb-3">Join conversations, ask questions and learn from each other.</p>
@@ -235,7 +235,7 @@ export default function HomePage() {
                 <p className="text-xs font-medium text-[#111827]">&quot;How is the work-life balance at top-tier companies?&quot;</p>
                 <p className="text-[10px] text-[#9CA3AF] mt-1">142 replies · 3h ago</p>
               </div>
-              <Link href="/community" className="text-xs font-semibold text-[#10B981] hover:underline">Explore community →</Link>
+              <Link href="/community" className="text-xs font-semibold text-[#3B82F6] hover:underline">Explore community →</Link>
             </div>
 
             {/* Top paying companies (filler tile to complete 2x3) */}
@@ -263,7 +263,7 @@ export default function HomePage() {
         <section>
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-[#111827]">Top Roles by Median Compensation</h2>
-            <Link href="/salaries" className="text-sm font-medium text-[#16A34A] hover:underline">View all salaries →</Link>
+            <Link href="/salaries" className="text-sm font-medium text-[#FF5A5F] hover:underline">View all salaries →</Link>
           </div>
           <div className="bg-white rounded-xl border border-[#EBEBEB] overflow-hidden shadow-sm">
             {topRoles.map((r, i) => (
@@ -278,7 +278,7 @@ export default function HomePage() {
                     <p className="text-sm text-[#717171] truncate">{r.count} records · India</p>
                   </div>
                 </div>
-                <p className="text-xl font-bold text-[#0369A1] shrink-0 ml-4">{formatSalary(r.median, 'INR', 'INR')}</p>
+                <p className="text-xl font-bold text-[#FF5A5F] shrink-0 ml-4">{formatSalary(r.median, 'INR', 'INR')}</p>
               </div>
             ))}
           </div>
