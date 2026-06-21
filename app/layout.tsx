@@ -80,7 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
             <div className="border-t border-[#EBEBEB] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
               <div className="flex items-center gap-2 font-bold text-[#111827]">
-                <span className="w-6 h-6 bg-[#16A34A] rounded-md flex items-center justify-center">
+                <span className="w-6 h-6 bg-[#FF5A5F] rounded-md flex items-center justify-center">
                   <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-white" fill="currentColor">
                     <path d="M12 2L2 12l10 10 10-10L12 2zm0 4.83L17.17 12 12 17.17 6.83 12 12 6.83z" />
                   </svg>
